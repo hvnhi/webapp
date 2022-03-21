@@ -46,32 +46,32 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next'
   ],
 
-  // auth: {
-  //   strategies: {
-  //     local: {
-  //       token: {
-  //         property: 'token',
-  //         type: 'Bearer'
-  //       },
-  //       user: {
-  //         property: 'user',
-  //         autoFetch: true
-  //       },
-  //       endpoints: {
-  //         login: { url: '/auth/login', method: 'post', propertyName: 'token' },
-  //         logout: { url: '/auth/logout', method: 'post' },
-  //         user: { url: '/auth/me', method: 'get' }
-  //       }
-  //     }
-  //   }
-  // },
+  auth: {
+    strategies: {
+      local: {
+        user: {
+          property: '',
+          autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/auth/login', method: 'post', propertyName: 'token' },
+          logout: { url: '/auth/logout', method: 'post' },
+          user: { url: '/auth/me', method: 'get', propertyName: '' }
+        },
+        token: {
+          property: 'token',
+          type: 'Bearer'
+        }
+      }
+    }
+  },
 
-  // router: {
-  //   middleware: ['auth']
-  // },
+  router: {
+    middleware: ['auth']
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
